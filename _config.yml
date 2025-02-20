@@ -23,8 +23,8 @@ email: rajwar.hilsa@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Kind of blog but not really. I post some important topics
   based on my discipline, in detail and crux :)
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/notes" # the subpath of your site, e.g. /blog
+url: "https://0xhilSa.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: justSahilRajwar
 github_username:  0xhilSa
 
