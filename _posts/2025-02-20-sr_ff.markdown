@@ -1,0 +1,102 @@
+---
+layout: post
+title: "SR Flip-Flop"
+date: 2025-02-20
+---
+
+The **SR Flip Flop** or **Set-Reset Flip Flop** is a synchronous bistable circuit that stores one bit of information and only changes its state on the clock
+signal. It is a clocked version of the SR latch.
+
+1. **Components & Inputs**
+  - **S(Set):** Sets the output (`Q = 1`)
+  - **R(Reset):** Resets the output (`Q = 0`)
+  - **CLK(Clock):** Controls when the flip-flop updates
+  - **Q(Output):** Stores the current state
+  - **Q'(Complementary Output):** Always opposite of `Q` or `~Q`
+
+2. **Truth Table:**
+
+    | CLK  | S  | R  | Q (Next State) | Q' (Next State) |
+    |------|----|----|----------------|-----------------|
+    | ↑    | 0  | 0  | X              | X               |
+    | ↑    | 0  | 1  | 0 (Reset)      | 1               |
+    | ↑    | 1  | 0  | 1 (Set)        | 0               |
+    | ↑    | 1  | 1  | Invalid        | Invalid         |
+
+    - **↑ (Rising Edge of Clock):** Flip Flop updates on a rising clock edge
+    - **S = 1**, **R = 1** is an **invalid state** (causes an undefined output)
+
+3. **Difference Between SR Latch & SR Flip Flop**
+
+    | Feature     | SR Latch                | SR Flip-Flop                |
+    |-------------|-------------------------|-----------------------------|
+    | Clocked     | No                      | Yes                         |
+    | Type        | Async                   | Sync                        |
+    | Trigerring  | Change Imediately       | Changes on clock pulse      |
+    | Usage       | Simple Memory Elements  | Registers, Sequential Logic |
+
+
+### SR Flip-Flop implementation in Verilog
+The following is the SR Flip-Flop module implementation in Verilog. File `sr.v`
+```verilog
+module sr(
+    input s,
+    input r,
+    input clk,
+    output q,
+    output qn
+    );
+    wire sn, rn, q_int, qn_int;
+    
+    nand (sn, s, clk);
+    nand (rn, r, clk);
+    
+    nand (q_int, sn, qn_int);
+    nand (qn_int, rn, q_int);
+    
+    assign q = q_int;
+    assign qn = qn_int;
+end module
+```
+
+The following is the SR Flip-Flop testbench implementation. File `sr_tb.v`
+```verilog
+module sr_tb;
+  reg s, r, clk;
+  wire q, qn;
+
+  sr uut (
+    .s(s),
+    .r(R),
+    .clk(clk),
+    .q(q),
+    .qn(qn)
+  );
+
+  always #5 clk = ~clk;
+
+  initial begin
+    clk = 0;
+    s = 0;
+    r = 0;
+
+    #10 s = 1; r = 0;
+    #10 s = 0; r = 1;
+    #10 s = 1; r = 1;
+    #10 s = 0; r = 0;
+    #10 s = 1; r = 0;
+    #10 s = 0; r = 1;
+    #10 s = 1; r = 1;
+    #10 $finish;
+  end
+  initial begin
+    $monitor("Time=%0t | S=%b | R=%b | CLK=%b | Q=%b | Qn=%b", $time, s, r, clk, q, qn);
+  end
+endmodule
+```
+
+Given below is a diagram for SR Flip-Flop
+![SR Flip Flop](/assets/images/sr_flip_flop.png)
+
+
+You can either do this in VScode using a HDL compiler called **iverilog** or implement it on software like **Vivado**
