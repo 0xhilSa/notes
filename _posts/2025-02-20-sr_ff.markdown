@@ -96,7 +96,7 @@ endmodule
 ```
 
 Given below is a diagram for SR Flip-Flop
-![SR Flip Flop](/assets/images/sr_flip_flop.png)
+![SR Flip Flop]({{ site.baseurl }}/assets/images/sr_flip_flop.png)
 
 
 You can either do this in VScode using a HDL compiler called **iverilog** or implement it on software like **Vivado**
