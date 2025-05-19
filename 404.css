@@ -1,0 +1,25 @@
+body{
+  margin: 0px;
+  background-color: #1d2021;
+  color: #ffffe4;
+  user-select: none;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto 20px;
+  font-family: monospace;
+  font-size: xx-large;
+}
+
+.content a{
+  color: coral;
+  text-decoration: none;
+}
+
+.content a:hover{
+  text-decoration: underline;
+}

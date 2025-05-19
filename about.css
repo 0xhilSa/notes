@@ -1,0 +1,47 @@
+body{
+  margin: 0px;
+  background-color: #1d2021;
+  color: #ffffe4;
+  user-select: none;
+}
+
+.heading{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: auto 20px;
+  font-family: monospace;
+}
+
+.heading h1{
+  cursor: pointer;
+}
+
+.heading a{
+  color: coral;
+  text-decoration: none;
+}
+
+.heading a:hover{
+  text-decoration: underline;
+}
+
+.content{
+  font-family: monospace;
+  font-size: 15px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.links a{
+  color: coral;
+  text-decoration: none;
+}
+
+.links a:hover{
+  text-decoration: underline;
+}
+
