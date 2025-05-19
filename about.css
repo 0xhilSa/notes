@@ -32,7 +32,8 @@ body{
   font-family: monospace;
   font-size: 15px;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
+  min-width: 800px;
   margin: 0 auto;
   padding: 1rem;
 }
