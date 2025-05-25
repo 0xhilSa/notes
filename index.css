@@ -30,7 +30,7 @@ body{
 
 .posts{
   font-family: monospace;
-  font-size: 25px;
+  font-size: 30px;
   width: 100%;
   max-width: 950px;
   min-width: 800px;
@@ -48,7 +48,7 @@ body{
 }
 
 .links span{
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .links a{
