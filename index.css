@@ -28,4 +28,34 @@ body{
   text-decoration: underline;
 }
 
+.posts{
+  font-family: monospace;
+  font-size: 25px;
+  width: 100%;
+  max-width: 950px;
+  min-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
 
+.posts ul{
+  list-style: none;
+}
+
+.links{
+  display: flex;
+  flex-direction: column;
+}
+
+.links span{
+  font-size: 11px;
+}
+
+.links a{
+  color: coral;
+  text-decoration: none;
+}
+
+.links a:hover{
+  text-decoration: underline;
+}
